@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    
+   <head>
+    <title>html</title>
+    <style>
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border:solid; 
+        color:purple;
+        }
+        th, td {
+            padding: 4px;
+            text-align: left;
+            border-bottom: 1px solid;
+            color:black;
+            font-family:San Serif;
+        }
+          
+        th {
+            background-color: pink;
+            
+        }
+        input {
+            font-family:Times New Roman;
+            
+        }
+    
+        input[type="file"] {
+            margin-top: 5px; color:blue;
+        }
+        input[type="reset"], input[type="submit"] {
+            padding: 10px;
+            margin-top:10px;
+            background-color: pink;
+           font-family: Times New Roman;
+           font-size:15px;
+            color: white;
+            border-color:purple;
+            border-radius:8px;
+            cursor: pointer;
+        }
+        input[type="reset"]:hover, input[type="submit"]:hover {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr> 
+        <th style="color: skylue">Email:</th>
+        <td><input type="email" name="email" required></td>
+        <th>Password:</th>
+        <td><input type="password" name="password" required></td>
+        <th>Confirm Password:</th>
+        <td><input type="password" name="confirm_password" required></td>
+    </tr>
+    <tr>
+        <th>First Name:</th>
+        <td><input type="text" name="first_name" required></td>
+        <th>Middle Name: (Optional)</th>
+        <td><input type="text" name="middle_name"></td>
+        <th>Last Name:</th>
+        <td><input type="text" name="last_name" required></td>
+    </tr>
+    <tr>
+        <th>Birthday:</th>
+        <td><input type="text" name="birthday" placeholder="mm/dd/yy" required></td>
+        <th>Gender:</th>
+        <td>
+            <input type="radio" name="gender" value="Male" id="male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="Female" id="female">
+            <label for="female">Female</label>
+        </td>
+        <th>Profile Picture:</th>
+        <td>
+            <input type="file" name="profile_picture">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8" style="text-align: center;">
+          <input type="reset" value="Reset" > 
+            <input type="submit" value="Submit">
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

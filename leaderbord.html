@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url(media/leaderboardbg.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        .scoreboard {
+            background: #a084e8;
+            padding: 20px;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .score-entry {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .home-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000;
+            border: 3px solid #000;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Leaderboard</h1>
+        <div class="scoreboard" id="scoreboard"></div>
+        <a href="game.html" class="home-button">Home</a>
+    </div>
+
+    <script>
+        const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+        function addScore(name, score) {
+            scores.push({ name, score });
+            localStorage.setItem('leaderboard', JSON.stringify(scores));
+        }
+
+        const playerName = localStorage.getItem('playerName');
+        const playerScore = localStorage.getItem('playerScore');
+
+        if (playerName && playerScore) {
+            addScore(playerName, parseInt(playerScore));
+            localStorage.removeItem('playerName');
+            localStorage.removeItem('playerScore');
+        }
+
+        scores.sort((a, b) => b.score - a.score);
+        const topScores = scores.slice(0, 3);
+
+        const scoreboard = document.getElementById('scoreboard');
+        scoreboard.innerHTML = topScores.length
+            ? topScores.map(entry => `<div class='score-entry'>${entry.name} - ${entry.score} points</div>`).join('')
+            : '<p>No scores yet!</p>';
+    </script>
+</body>
+</html>

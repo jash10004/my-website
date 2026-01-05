@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Choose Subject</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(media/bg2.png ) ;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .nav {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .container {
+            text-align: center;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 50px;
+        }
+        .button {
+            display: inline-block;
+            width: 150px;
+            padding: 10px 0;
+            font-size: 1rem;
+            border: 3px solid #000;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            color: #ffffff;
+        }
+        .math { background-color: #a084e8; }
+        .science { background-color: #f79ac1; }
+        .english { background-color: #ffd580; }
+        .filipino { background-color: #ff6f6f; }
+        .history { background-color: #ff4c4c; }
+        .pe { background-color: #0fdfdf; }
+        .button:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html" class="button home"><i class="fa fa-home"></i></a>
+    </div>
+    <div class="container">
+        <h1>CHOOSE SUBJECT</h1>
+        <div class="button-container">
+            <a href="/rules/mathrules.html" class="button math">Math</a>
+            <a href="filipino.html" class="button filipino">Filipino</a>
+            <a href="/rules/sciencerules.html" class="button science">Science</a>
+            <a href="history.html" class="button history">History</a>
+            <a href="/rules/englishrules.html" class="button english">English</a>
+            <a href="pe.html" class="button pe">PE</a>
+        </div>
+    </div>
+</body>
+</html>

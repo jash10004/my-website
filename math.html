@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(media/quizbg.png);
+            background-repeat: no-repeat;
+            background-size:100% 100% ;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .question-box, .results-box {
+            background-color: #a084e8;
+            padding: 20px;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            width: 150px;
+            padding: 10px 0;
+            font-size: 1rem;
+            border: 3px solid #000;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            color: #ffffff;
+            background-color: plum;
+        }
+        .button.correct {
+            background-color: #4caf50;
+        }
+        .button.wrong {
+            background-color: #ff4c4c;
+        }
+        .wrong-answer {
+            color: #ff4c4c;
+        }
+        .home-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000;
+            border: 3px solid #000;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">CHOOSE THE CORRECT ANSWER</h1>
+        <div id="quiz-box" class="question-box">
+            <p id="question"></p>
+            <div class="button-container">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { question: '1. Solve for x: 4x - 7 = 21', answers: [5, 6, 7], correct: 7 },
+            { question: '2. What is the product of 6 x 7?', answers: [42, 36, 29], correct: 42 },
+            { question: '3. Which is an even number?', answers: [7, 8, 3], correct: 8 },
+            { question: '4. What is 8 + 5?', answers: [1, 2, 13], correct: 13 },
+            { question: '5. A train travels 120km in 1.5 hours. What is its average speed?', answers: ['60km/h', '70km/h', '80km/h'], correct: '80km/h' }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        const userAnswers = [];
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('question').innerText = q.question;
+            const buttonContainer = document.querySelector('.button-container');
+            buttonContainer.innerHTML = '';
+            q.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.className = 'button';
+                button.onclick = () => checkAnswer(answer);
+                buttonContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(answer) {
+            const q = questions[currentQuestion];
+            userAnswers.push({ question: q.question, answer, correct: q.correct });
+            if (answer === q.correct) {
+                score++;
+            }
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('title').innerText = 'QUIZ RESULTS';
+            const quizBox = document.getElementById('quiz-box');
+            quizBox.className = 'results-box';
+            quizBox.innerHTML = `<p>Your score: ${score}/${questions.length}</p>`;
+            userAnswers.forEach(result => {
+                const color = result.answer === result.correct ? 'white' : 'red';
+                quizBox.innerHTML += `<p style="color:${color}">${result.question} - Your answer: ${result.answer} - Correct answer: ${result.correct}</p>`;
+            });
+            quizBox.innerHTML += '<a href="game.html" class="home-button">Home</a>';
+        }
+
+        loadQuestion();
+    </script>
+     <script>
+        function saveScore() {
+            const playerName = localStorage.getItem('playerName');
+            if (playerName) {
+                localStorage.setItem('playerScore', score); // Assuming 'score' tracks the final score
+                window.location.href = 'leaderboard.html';
+            } else {
+                alert('Player name not found! Please enter your name first.');
+                window.location.href = 'player_name.html';
+            }
+        }
+    </script>
+</body>
+</html>

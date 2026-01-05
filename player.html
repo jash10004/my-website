@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Player Name</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url(media/namebg.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        input[type="text"] {
+            font-size: 1.5rem;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border: 3px solid #000;
+            border-radius: 10px;
+        }
+        .start-button {
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 1.5rem;
+            background-color: #ffcc00;
+            color: #000;
+            border: 3px solid #000;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Name</h1>
+        <input type="text" id="playerName" placeholder="Your name or code name">
+        <br>
+        <a href="#" class="start-button" onclick="startGame()">Start Game</a>
+    </div>
+
+    <script>
+        function startGame() {
+            const playerName = document.getElementById('playerName').value.trim();
+            if (playerName) {
+                localStorage.setItem('playerName', playerName);
+                window.location.href = 'game.html';
+            } else {
+                alert('Please enter your name!');
+            }
+        }
+    </script>
+</body>
+</html>

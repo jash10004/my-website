@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Me | Jhastine Mercede</title>
-    <link rel="stylesheet" href="design.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASC Contact Information</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #003300;
+      padding: 20px;
+      color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    header img {
+      height: 70px;
+      margin-right: 20px;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right:30px;
+      font-size: 16px;
+      padding: 8px 16px;
+      background-color: #004d00;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: #006600;
+   
+    }
+    .sidebar {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      width: 250px;
+      height: calc(100% - 100px);
+      background-color: #004d00;
+      padding-top: 20px;
+      transition: width 0.3s;
+      color: white;
+    }
+    .sidebar:hover {
+      width: 300px;
+    }
+    .sidebar h2, .sidebar p {
+      padding: 10px;
+      margin: 0;
+    }
+    .content {
+      margin-left: 260px;
+      margin-top: 120px;
+      padding: 40px;
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="img/basclogo.png" alt="Bulacan Agricultural State College Logo" />
+      <h1>Bulacan Agricultural State College</h1>
+    </div>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <a href="index.html">Home</a>
     </nav>
-</header>
-
-<!-- SUMMARY SECTION -->
-<section class="about-summary">
-    <h1 class="section-title">Summary</h1>
-
-    <p class="summary-text">
-        Motivated IT student from Bulacan Agricultural State College seeking OJT placement to strengthen technical skills and gain industry experience.
-        Has hands-on experience in developing projects including an Activity Approval System and e-commerce features using React Native and Firebase.
-        Knowledgeable in basic networking (LAN setup, IP configuration,troubleshooting) and familiar with cybersecurity foundations. A
-        collaborative problem-solver with willingness to learn, adapt, and contribute to team goals.
-    </p>
-</section>
-
-<!-- BOTTOM LINKS SECTION -->
-<section class="about-links">
-
-    <div class="links-column-a">
-        <a href="/aboutmemore/personaldetailes.html" class="about-link">Personal details</a>
-        <a href="/aboutmemore/educ.html" class="about-link">Education</a>
-    </div>
-
-    <div class="links-column-b">
-        <a href="/aboutmemore/cert.html" class="about-link">Certificates</a>
-        <a href="/aboutmemore/skills.html" class="about-link">Skills</a>
-    </div>
-
-</section>
-<footer>
-    <p>© 2026 Jhastine Mercede</p>
-    <p>0969-061-6353</p>
-     <p>jhastinemercede@gmail.com</p>
-</footer>
-</body>
-</html>
-
-
-<script src="script.js"></script>
+  </header>
+  <div class="sidebar">
+    <h2>Contact Information</h2>
+    <p>📧 E-mail: iro.basc.24@gmail.com</p>
+    <p>📍 BASC International Relations Office</p>
+    <p>📞 Telephone No.: 044-931-8660 local 101</p>
+  </div>
+  <div class="content">
+    <h2>International Relations Office</h2>
+     <img src="img/Org-Chart-1.webp" alt="Org-Chart-1">
+  </div>
 </body>
 </html>

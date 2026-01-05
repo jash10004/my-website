@@ -1,154 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url(media/quizbg.png);
-            background-repeat: no-repeat;
-            background-size:100% 100% ;
-            font-family: 'Press Start 2P', cursive;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            color: #ffffff;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-        .question-box, .results-box {
-            background-color: #a084e8;
-            padding: 20px;
-            border: 3px solid #000;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        .button-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .button {
-            display: inline-block;
-            width: 150px;
-            padding: 10px 0;
-            font-size: 1rem;
-            border: 3px solid #000;
-            border-radius: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            color: #ffffff;
-            background-color: plum;
-        }
-        .button.correct {
-            background-color: #4caf50;
-        }
-        .button.wrong {
-            background-color: #ff4c4c;
-        }
-        .wrong-answer {
-            color: #ff4c4c;
-        }
-        .home-button {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ffcc00;
-            color: #000;
-            border: 3px solid #000;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASC Historical Background</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #003300;
+      padding: 20px;
+      color: white;
+    }
+    header img {
+      height: 70px;
+      margin-right: 20px;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      padding: 8px 16px;
+      background-color: #004d00;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #006600;
+    }
+    .content {
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #003300;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.6;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 id="title">CHOOSE THE CORRECT ANSWER</h1>
-        <div id="quiz-box" class="question-box">
-            <p id="question"></p>
-            <div class="button-container">
-            </div>
-        </div>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="img/basclogo.png" alt="Bulacan Agricultural State College Logo" />
+      <h1>Bulacan Agricultural State College</h1>
     </div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+  <div class="content">
+    <h2>BASC Brief History</h2>
+    <p><em>The beginnings</em> oThe beginnings of Bulacan Agricultural State College went back to the time when in 1952  the Plaridel Community Agricultural High School with only 100 students was established at  Bintog, Plaridel, Bulacan. Soon after, </p>
+    <p>it was renamed Bulacan Provincial Agricultural High School. Due to the nationalization of existing agricultural schools in 1953, under Republic Act 948 it was renamed Bulacan National Agricultural High School (BNAHS).  In 1955, Proclamation 163 was issued</p>
+    <p> reserving for the site of the BNAHS around 192.5 hectares of the Buenavista Estate in San Ildefonso, Bulacan. In June 21,1959, through Republic Act 2416, BNAHS was converted to Bulacan National Agricultural School (BuNAS).  Thirty nine years after, on February 24, 1998,</p>
+    <p> BuNAS was converted as a state college by virtue of Republic Act No. 8548.  </p>
 
-    <script>
-        const questions = [
-            { question: 'Who was the first President of the United States?', answers: ['Thomas Jefferson','George Washington ' , 'Abraham Lincoln'], correct: 'George Washington ' },
-            { question: 'What year did World War II end?', answers: ['1945', '1939', '1950'], correct: '1945' },
-            { question: 'Which ancient civilization built the pyramids?', answers: ['greeks', 'roman', 'egyptians'], correct: 'egyptians' },
-            { question: 'Who is known as the “Father of the Philippine Revolution”?"', answers: ['jose rizal','andres bonifacio', 'emilio aguinaldo'], correct:'andres bonifacio' },
-            { question: 'What was the primary purpose of the Magna Carta signed in 1215?', answers: ['Establishing a monarchy', 'Limiting the power of the king ', 'Expanding the king’s authority'], correct: 'Limiting the power of the king' }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-        const userAnswers = [];
-
-        function loadQuestion() {
-            const q = questions[currentQuestion];
-            document.getElementById('question').innerText = q.question;
-            const buttonContainer = document.querySelector('.button-container');
-            buttonContainer.innerHTML = '';
-            q.answers.forEach(answer => {
-                const button = document.createElement('button');
-                button.innerText = answer;
-                button.className = 'button';
-                button.onclick = () => checkAnswer(answer);
-                buttonContainer.appendChild(button);
-            });
-        }
-
-        function checkAnswer(answer) {
-            const q = questions[currentQuestion];
-            userAnswers.push({ question: q.question, answer, correct: q.correct });
-            if (answer === q.correct) {
-                score++;
-            }
-            currentQuestion++;
-            if (currentQuestion < questions.length) {
-                loadQuestion();
-            } else {
-                showResults();
-            }
-        }
-
-        function showResults() {
-            document.getElementById('title').innerText = 'QUIZ RESULTS';
-            const quizBox = document.getElementById('quiz-box');
-            quizBox.className = 'results-box';
-            quizBox.innerHTML = `<p>Your score: ${score}/${questions.length}</p>`;
-            userAnswers.forEach(result => {
-                const color = result.answer === result.correct ? 'white' : 'red';
-                quizBox.innerHTML += `<p style="color:${color}">${result.question} - Your answer: ${result.answer} - Correct answer: ${result.correct}</p>`;
-            });
-            quizBox.innerHTML += '<a href="game.html" class="home-button">Home</a>';
-        }
-
-        loadQuestion();
-    </script>
-     <script>
-        function saveScore() {
-            const playerName = localStorage.getItem('playerName');
-            if (playerName) {
-                localStorage.setItem('playerScore', score); // Assuming 'score' tracks the final score
-                window.location.href = 'leaderboard.html';
-            } else {
-                alert('Player name not found! Please enter your name first.');
-                window.location.href = 'player_name.html';
-            }
-        }
-    </script>
+       <p> Bulacan Agricultural State College remains the first and only state-run higher educational institution of agriculture in Bulacan. For the past 23 years of existence as a state college, it has become an educational anchor for the poor but deserving students in Bulacan and the whole Central Luzon Region. </p>
+       <p>It is one of the 55 out of 106 State Universities and Colleges in the country with Level III status based on CMO No. 09, s. 2019 issued by the Commission on Higher Education.</p>
+        
+      <p>  Three past presidents led the Bulacan Agricultural State College, Dr. Rolando F. Camacho  (Dec. 9,1998- Dec. 8, 2002); Dr. Josie A. Valdez (Dec. 9, 2002-Jan. 31,2011) and Dr. Gerardo Mendoza (Feb. 1, 2011-Jan. 31, 2019)</p>
+        <p> before Dr. Jameson H. Tan assumed as the 4th BASC President on February 1, 2019.</p>
+        
+        <p>  At present, the College has three campuses, and two extension classes in three of the sixth legislative districts of Bulacan. The Main Campus is located in Brgy. Pinaod, San Ildefonso with the College of Agriculture Campus at Brgy. Poblacion, San Ildefonso </p>
+        <p>   while the DRT Campus, established in 2005 is located at Brgy. Sapang Bulak, Doña Remedios Trinidad (3rd District). The offering of extension programs under Memorandum of Agreement are located at BTVC-BNAHS, Brgy. Pulong Bayabas, Balagtas (5th District) </p>
+         <p>   and DepEd Bulacan-FFHNAS, Brgy. Guyong, Sta. Maria (6th District).</p>
+        
+          <p> Through the initiative and leadership of Congresswoman Lorna C. Silverio, House Bill 8111, “An Act converting  BASC into Bulacan State Agricultural University” successfully passed at the House of Representatives and has been approved in the First Reading </p>
+        <p> at Senate of the Philippines under Senate Bill 2106.</p>
+        
+         <p>  The Bulacan Agricultural State College has held on tight to its commitment made several years ago. Unprecedented growth in all its programs has been paying off especially in terms of educational benefits to countless students and families in the region. </p>
+        <p>   As it undergoes the process of transforming into a state university, BASC remains committed to offer the best that the students could possibly get in a truly accessible, relevant and quality education, hence, the motto: “Shaping Minds, Transforming Lives”.</p>
+    <p>Over the decades, the institution underwent several transformations, including its conversion to Bulacan National Agricultural School and later to Bulacan Agricultural State College through Republic Act No. 8548 in 1998...</p>
+    <p>Today, BASC continues to serve as a vital educational institution for agriculture in Central Luzon, offering various programs and contributing to the community through education, research, and outreach.</p>
+  </div>
 </body>
 </html>

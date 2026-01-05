@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSAU School Page</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f3;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #086b3d, #0fa863);
+      padding: 20px 40px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+    header img {
+      height: 80px;
+      margin-right: 25px;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    .home-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+    .home-link:hover {
+      background-color: #1b4332;
+    }
+    .cover-photo {
+      width: 100%;
+      height: 500px;
+      background: url(img/final_coverphoto.png) center/cover no-repeat;
+      filter: brightness(0.7);
+      margin-bottom: 30px;
+    }
+    .institutes-section {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .institute-box {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+      text-align: center;
+      width: 300px;
+      margin: 20px;
+    }
+    .institute-box:hover {
+      transform: translateY(-10px);
+    }
+    .institute-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .institute-box h3 {
+      margin: 10px 0;
+      color: #086b3d;
+      padding: 10px;
+    }
+    .institute-box a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="img/basclogo.png" alt="BASU Logo" />
+      <h1>Bulacan Agricultural State University</h1>
+    </div>
+    <a href="index.html" class="home-link">Home</a>
+  </header>
+  <div class="cover-photo"></div>
+  <div class="institutes-section">
+    <a href="/institutes/educ.html" class="institute-box">
+      <img src="img/educlogo.png" alt="educ" />
+      <h3>Institute of Education</h3>
+    </a>
+    <a href="/institutes/im.html" class="institute-box">
+      <img src="img/im_logo.png" alt="IM" />
+      <h3>Institute of Management</h3>
+    </a>
+    <a href="/institutes/agri.html" class="institute-box">
+      <img src="img/agri_logo.png" alt="agriculture" />
+      <h3>Institute of Agriculture</h3>
+    </a>
+    <a href="/institutes/ieat.html" class="institute-box">
+      <img src="img/eiat.png" alt="Engineering" />
+      <h3>Institute of Engineering</h3>
+    </a>
+      <a href="/institutes/vet.html" class="institute-box">
+        <img src="img/vet_logo.png" alt="Veterenary" />
+        <h3>Institute of Veterenary</h3>
+      </a>
+      <a href="/institutes/art.html" class="institute-box">
+        <img src="img/art_and_science.png" alt="art_and_science" />
+        <h3>Institute of Art and science</h3>
+      </a>
+      <a href="/institutes/ics.html" class="institute-box">
+        <img src="img/ics_logo.png" alt="ics" />
+        <h3>Institute of Computer Studies</h3>
+      </a>
+  </div>
+</body>
+</html>

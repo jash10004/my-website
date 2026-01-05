@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICS Subjects</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f0f4f3;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #086b3d, #0fa863);
+            padding: 20px 40px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            height: 80px;
+            margin-right: 25px;
+        }
+        header h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .home-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .home-link:hover {
+            background-color: #1b4332;
+        }
+        .section { 
+          background: #fff; 
+          padding: 40px; 
+          margin: 20px 0; 
+          border-radius: 15px; 
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); 
+         }
+        h2 { 
+          color: #086b3d; 
+          font-size: 28px; 
+         }
+        p { 
+          color: #333; 
+          font-size: 18px; 
+          line-height: 1.6; 
+        }
+        .content {
+            margin-top: 150px;
+            width: 60%;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subject-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-content: center;
+            width: 80%;
+            margin-top: 50px;
+        }
+        .subject {
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.8);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .subject:hover {
+            background: rgba(76, 175, 80, 1);
+            transform: scale(1.05);
+        }
+        .activity-gallery {
+            display: none;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+        .activity-gallery img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .activity-gallery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .modal:target {
+            display: flex;
+        }
+    </style>
+    <script>
+        function toggleGallery(id) {
+            const gallery = document.getElementById(id);
+            const allGalleries = document.querySelectorAll('.activity-gallery');
+            allGalleries.forEach(g => g.style.display = 'none');
+            gallery.style.display = gallery.style.display === 'flex' ? 'none' : 'flex';
+        }
+        function openModal(src) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+        function closeModal() {
+            document.getElementById('image-modal').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="/img/basclogo.png" alt="BASU Logo">
+            <h1>Bulacan Agricultural State University</h1>
+        </div>
+        <a href="/student_insti.html" class="home-link">Home</a>
+    </header>
+    <div class="content">
+        <div class="logo">
+            <img src="/img/ics.png" alt="Secondary Logo">
+        </div>
+    </div>
+    <div class="section">
+        <h2>Mission</h2>
+        <p>Provide excellent instruction, conduct relevant research and foster community engagement that produce highly competent graduates necessary for the development of the country.</p>
+    </div>
+    <div class="section">
+        <h2>Vision</h2>
+        <p>A globally-engaged higher education institution of agriculture and allied disciplines</p>
+    </div>
+    <div class="section">
+        <h2>Goals</h2>
+        <p>a. Produce competent professionals with current knowledge and skills, ready to
+            flourish in a dynamic and globally competitive environment.
+          <br>b. Pursue innovative research, engaging extension, production, and capacity
+          development activities that promote digital literacy and social responsibility.
+          <br>c. Foster a strong collaboration with industry and government institutions to                                                      
+          empower students to attain their full potential and enhance faculty teaching and                     
+          research capabilities.
+          <br>d. Ensure the delivery of high-quality education across the various fields of study
+          offered by the institute. </p>                                                                                                                                                                                      
+    </div>
+</div>
+        <div class="container">
+            <div class="subject-box">
+                <div class="subject" onclick="toggleGallery('java-activities')">Java</div>
+                <div class="subject" onclick="toggleGallery('networking-activities')">Networking</div>
+                <div class="subject" onclick="toggleGallery('website-activities')">Website</div>
+                <div class="subject" onclick="toggleGallery('python-activities')">Python</div>
+                <div class="subject" onclick="toggleGallery('database-activities')">Database</div>
+                <div class="subject" onclick="toggleGallery('javaScript-activities')">JavaScript</div>
+                <div class="subject" onclick="toggleGallery('html-activities')">HTML</div>
+                <div class="subject" onclick="toggleGallery('css-activities')">CSS</div>
+                <div class="subject" onclick="toggleGallery('php-activities')">PHP</div>
+                <div class="subject" onclick="toggleGallery('vbnet-activities')">VBnet</div>
+                <div class="subject" onclick="toggleGallery('c++-activities')">C++</div>
+            </div>
+            <div class="activity-gallery" id="java-activities">
+                <img src="https://via.placeholder.com/100" alt="Java Activity 1" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="Java Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="Java Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="networking-activities">
+                <img src="/img/net1.png" alt="net Activity 1" onclick="openModal(this.src)">
+                <img src="/img/net2.png" alt="net Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="net Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="website-activities">
+                <img src="/img/web1.jfif" alt="web Activity 1" onclick="openModal(this.src)">
+                <img src="/img/web2.jfif" alt="web Activity 2" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="python-activities">
+                <img src="/img/py1.2.png" alt="py Activity 1" onclick="openModal(this.src)">
+                <img src="/img/py1.3.png" alt="py Activity 2" onclick="openModal(this.src)">
+                <img src="/img/py2.png" alt="py Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="database-activities">
+                <img src="/img/inv1.png" alt="db Activity 1" onclick="openModal(this.src)">
+                <img src="/img/inv2.png" alt="db Activity 2" onclick="openModal(this.src)">
+                <img src="/img/inv3.png" alt="db Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="javaScript-activities">
+                <img src="https://via.placeholder.com/100" alt="Js Activity 1" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="Js Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="Js Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="html-activities">
+                <img src="/img/html1.png" alt="html Activity 1" onclick="openModal(this.src)">
+                <img src="/img/html2.png" alt="html Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="html Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="css-activities">
+                <img src="https://via.placeholder.com/100" alt="css Activity 1" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="css Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="css Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="php-activities">
+                <img src="/img/php1.png" alt="php Activity 1" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="php Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="php Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="vbnet-activities">
+                <img src="/img/vbnet 1.png" alt="vb Activity 1" onclick="openModal(this.src)">
+                <img src="/img/vbnet2.png" alt="vb Activity 2" onclick="openModal(this.src)">
+                <img src="/img/vbnet2 (2).png" alt="vb Activity 3" onclick="openModal(this.src)">
+            </div>
+            <div class="activity-gallery" id="c++-activities">
+                <img src="/img/ctt.png" alt="ctt Activity 1" onclick="openModal(this.src)">
+                <img src="/img/vbnt2.png" alt="ctt Activity 2" onclick="openModal(this.src)">
+                <img src="https://via.placeholder.com/100" alt="ctt Activity 3" onclick="openModal(this.src)">
+            </div>
+        </div>
+    </div> 
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <img id="modal-image" src="" alt="Enlarged Activity Image">
+    </div>
+</body>
+</html>

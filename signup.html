@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .login-container, .signup-container, .email-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-container h2, .signup-container h2, .email-container h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2193b0;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #6dd5ed;
+        }
+
+        .forgot-password, .signup-link {
+            display: block;
+            margin-top: 10px;
+            color: #2193b0;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover, .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        .email-container {
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <a href="#" class="forgot-password" onclick="showEmailBox()">Forgot Password?</a>
+            <a href="#" class="signup-link" onclick="showSignupBox()">Create an Account</a>
+        </div>
+
+        <div class="signup-container" id="signup-box" style="display: none;">
+            <h2>Signup</h2>
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Signup</button>
+            <button onclick="hideSignupBox()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="email-container" id="email-box">
+        <h2>Enter Your Email</h2>
+        <input type="email" placeholder="Email Address" required>
+        <button onclick="sendOTP()">Send OTP</button>
+        <button onclick="hideEmailBox()">Cancel</button>
+    </div>
+
+    <script>
+        function showEmailBox() {
+            document.getElementById('email-box').style.display = 'block';
+        }
+
+        function hideEmailBox() {
+            document.getElementById('email-box').style.display = 'none';
+        }
+
+        function sendOTP() {
+            const emailInput = document.querySelector('#email-box input[type="email"]');
+            const email = emailInput.value;
+            if (email) {
+                alert(`OTP has been sent to ${email}`);
+                hideEmailBox();
+            } else {
+                alert('Please enter a valid email address');
+            }
+        }
+
+        function showSignupBox() {
+            document.getElementById('signup-box').style.display = 'block';
+        }
+
+        function hideSignupBox() {
+            document.getElementById('signup-box').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

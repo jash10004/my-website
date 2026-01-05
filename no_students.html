@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASC Historical Background</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #003300;
+      padding: 20px;
+      color: white;
+    }
+    header img {
+      height: 70px;
+      margin-right: 20px;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      padding: 8px 16px;
+      background-color: #004d00;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #006600;
+    }
+    .institute-box {
+      background: linear-gradient(145deg, #c0e6d5, #eafff3);
+      padding: 20px;
+      margin: 15px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 10px #b0cfc0, -5px -5px 10px #f0fff3;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+    .institute-box:hover {
+      transform: scale(1.05);
+    }
+    .course-list {
+      margin-top: 10px;
+      display: none;
+    }
+    .course-list.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="img/basclogo.png" alt="Bulacan Agricultural State College Logo" />
+      <h1>Bulacan Agricultural State College</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+<body>
+  <section id="institutes">
+    <h2>Institutes</h2>
+    <div style="display: flex; flex-wrap: wrap;">
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Agriculture & Veterenary Medecine 
+        <ul class="course-list">
+          <img src="img/vetlogo.png" alt="logo" >
+          <li>Bachelor of Science in Agriculture</li>
+          <li>Master of Science in Agriculture </li>
+          <li>Doctor of Philosophy in Agricultural Sciences</li>
+         
+        </ul>
+      </div>
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Arts & Science
+        <ul class="course-list">
+          <img src="img/arts.png" alt="logo" >
+          <li>Bachelor of Science in Development Communication</li>
+        </ul>
+      </div>
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Engineering
+        <ul class="course-list">
+          <img src="img/engi.png" alt="logo" >
+          <li>Bachelor of Science in Geodetic Engineering</li>
+          <li>Bachelor of Science in Agricultural and Biosystems Engineering</li>
+          <li>Bachelor of Science in Food Technology</li>
+        </ul>
+      </div>
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Management
+        <ul class="course-list">
+          <img src="img/management.png" alt="logo" >
+          <li>Bachelor of Science in Agribusiness</li>
+          <li>Bachelor of Science in Business Administration</li>
+          <li>Bachelor of Science in Hospitality Management</li>
+        </ul>
+      </div>
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Education
+        <ul class="course-list">
+          <img src="img/educ.png" alt="logo" >
+          <li>Bachelor of Secondary Education major in English  </li>
+          <li>Bachelor of Secondary Education major in science </li>
+          <li>Bachelor of Secondary Education major in math</li>
+        </ul>
+      </div>
+      <div class="institute-box" onclick="toggleCourses(this)">
+        Institute of Computer Studies
+        <ul class="course-list">
+          <img src="img/ics.png" alt="logo" >
+          <li>Bachelor of Science in Information Technology</li>
+         
+        </ul>
+      </div>
+    </div>
+    <script>
+      function toggleCourses(element) {
+        const courseList = element.querySelector('.course-list');
+        courseList.classList.toggle('show');
+      }
+    </script>
+</body>
+</html>
